@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopKart</title>
+  <link rel="shortcut icon" href="image/logo.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-body-tertiary">
+
+  <div class="container-fluid">
+    <!-- Header -->
+    <header class="row">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="image/logo.jpeg" alt="ShopKart Logo" width="150">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+            <a href="signin.html" class="btn btn-light border border-2 m-2">Sign In</a>
+            <a href="signup.html" class="btn btn-primary m-2">Sign Up</a>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar End -->
+
+      <!-- Carousel -->
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/ff79341b24d091cd.jpg?q=80" class="d-block w-100"
+              alt="banner">
+          </div>
+          <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/076c4f2ee87225d7.jpg?q=80" class="d-block w-100"
+              alt="banner">
+          </div>
+          <div class="carousel-item">
+            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/5b309e98775e22e4.jpg?q=80" class="d-block w-100"
+              alt="banner">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <!-- Carousel End -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Top Offers -->
+    <section class="my-3">
+      <h2 class="border-bottom border-2 pb-2">Top Exclusive Offers</h2>
+      <div class="row d-flex flex-nowrap overflow-x-scroll p-2" id="topOffers">
+        <!-- Cards inserted here dynamically -->
+      </div>
+    </section>
+    <!-- Top Offers End -->
+
+    <!-- Main Section -->
+    <section class="row my-4">
+      <!-- Filters -->
+      <div class="col-lg-2 p-3 border-end">
+        <h4>Filter & Sorting</h4>
+        <h6>Filter By</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="nav-link">Brand</a></li>
+          <li><a href="#" class="nav-link">Size</a></li>
+          <li><a href="#" class="nav-link">Color</a></li>
+        </ul>
+        <h6>Sort By</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="nav-link sort" data-sort="low">Low to High</a></li>
+          <li><a href="#" class="nav-link sort" data-sort="high">High to Low</a></li>
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div class="col-lg-10">
+        <div class="row product" id="productGrid">
+          <!-- Products will load here -->
+        </div>
+      </div>
+    </section>
+    <!-- Main Section End -->
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+      <p class="mb-0">© 2025 ShopKart | All Rights Reserved</p>
+      <small>Made with ❤️ using Bootstrap</small>
+    </footer>
+    <!-- Footer End -->
+  </div>
+
+  <!-- Script -->
+  <script>
+    const products = [
+      { name: "Samsung Galaxy S25 Ultra", price: 129999, img: "https://ankurelectricals.com/cdn/shop/files/Titanium_Blue.png?v=1739344017" },
+      { name: "Apple iPhone 16 Pro Max", price: 149999, img: "https://www.designinfo.in/wp-content/uploads/2024/09/Apple-iPhone-16-Pro-128GB-Black-Titanium-8-485x485-optimized.webp" },
+      { name: "Xiaomi 15 Ultra 5G", price: 89999, img: "https://www.techspecs.info/_next/image/?url=https%3A%2F%2Fwww.techspecs.info%2Fuploads%2FXiaomi_15_Ultra_5_G_93bd1034bd.png&w=640&q=75" },
+      { name: "iQOO 15 Ultra", price: 69999, img: "https://cdn.beebom.com/mobile/iqoo-13/iqoo-13-bmw.png" }
+    ];
+
+    const topOffers = document.getElementById('topOffers');
+    const productGrid = document.getElementById('productGrid');
+
+    function renderProducts(list, container) {
+      container.innerHTML = "";
+      list.forEach(p => {
+        container.innerHTML += `
+          <div class="col-md-3 mb-3">
+            <div class="card h-100 shadow-sm">
+              <img src="${p.img}" class="card-img-top" alt="${p.name}">
+              <div class="card-body">
+                <h6 class="card-title">${p.name}</h6>
+                <p class="card-text text-success fw-bold">₹${p.price.toLocaleString()}</p>
+                <a href="#" class="btn btn-primary btn-sm">Buy Now</a>
+                <a href="#" class="btn btn-outline-primary btn-sm">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    renderProducts(products, topOffers);
+    renderProducts(products, productGrid);
+
+    document.querySelectorAll('.sort').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let sorted = [...products];
+        if (btn.dataset.sort === "low") {
+          sorted.sort((a, b) => a.price - b.price);
+        } else if (btn.dataset.sort === "high") {
+          sorted.sort((a, b) => b.price - a.price);
+        }
+        renderProducts(sorted, productGrid);
+      });
+    });
+  </script>
+</body>
+
+</html>
