@@ -29,6 +29,6 @@ JavaScript (Vanilla JS): For client-side interactivity, dynamic content updates,
 
 Bootstrap 5: For a responsive layout, pre-built components (navbar, carousel, cards, forms), and utility classes.
 
-Deployment
-The project is hosted live on Vercel:
-https://shop-kart-one.vercel.app/
+# Deployment
+# The project is hosted live on Vercel:
+# https://shop-kart-one.vercel.app/
